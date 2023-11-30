@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PostController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    {% if post %}
+    <div>
+        {% if post.parent %}
+            <div><a href="{{ path('app_post', {slug:post.parent.slug}) }}" >{{ 'Back' | trans }}</a></div>
+        {% else %}
+            <div><a href="{{ path('app_posts') }}" >{{ 'Back' | trans }}</a></div>
+        {% endif %}
+        <div>{{ post.title }}</div>
+        <div>{{ post.content }}</div>
+        <div>{{ post.author.email }}</div>
+        <div>{{ post.createdAt | date("m/d/Y") }}</div>
+        {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
+            <div><a href="{{ path('app_post', {slug: post.slug}) }}">reply</a></div>
+        {% endif %}
+    </div>
+    {% endif %}
+    <table class="posts" border="1">
+        {% for post in replies %}
+            <tr>
+                <td><a href="{{ path('app_post', {slug:post.slug}) }}" >{{ post.title }}</a> </td>
+                <td>{{ post.content }}</td>
+                <td>{{ post.author.email }}</td>
+                <td>{{ post.createdAt | date("m/d/Y") }}</td>
+                {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
+                    <td><a href="{{ path('app_post', {slug: post.slug}) }}">reply</a></td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+    {{ pagerfanta(replies) }}
+</div>
+{% endblock %}

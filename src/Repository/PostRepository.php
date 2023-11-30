@@ -21,6 +21,29 @@ class PostRepository extends ServiceEntityRepository
         parent::__construct($registry, Post::class);
     }
 
+    public function findOneBySlug($slug=null): ?Post
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.slug = :slug')
+            ->setParameter('slug', $slug)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
+    public function createQueryBuilderByParent($parent = null)
+    {
+        $result =  $this->createQueryBuilder('p');
+        if ($parent) {
+            $result->andWhere('p.parent = :parent')
+                ->setParameter('parent', $parent);
+        } else {
+            $result->andWhere('p.parent is null');
+        }
+
+        return $result;
+    }
+
 //    /**
 //     * @return Post[] Returns an array of Post objects
 //     */
