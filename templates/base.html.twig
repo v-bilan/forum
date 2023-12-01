@@ -36,7 +36,14 @@
         </ul>
     </div>
 </header>
-{% block body %}{% endblock %}
+{% for success in app.flashes('success') %}
+    <div class="alert alert-success" role="alert">{{ success }}</div>
+{% endfor %}
+<div class="container bg-light">
+    <div class="bg-light mt-4 p-4">
+        {% block body %}{% endblock %}
+    </div>
+</div>
 </body>
 </html>
 

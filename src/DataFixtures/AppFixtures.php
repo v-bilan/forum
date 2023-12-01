@@ -19,11 +19,12 @@ class AppFixtures extends Fixture
             'password' => 'beresa79'
         ]);
 
-        PostFactory::createMany(30, function () use ($users) {
+        PostFactory::createOne(['author' => $users[0]]);
+        PostFactory::createMany(130, function () use ($users) {
             $result = [];
             if ( $users)  {
                 $result['author'] = $users[random_int(0, count($users) - 1)];
-                if (random_int(1,100) <= 40) {
+                if (random_int(1,100) <= 80) {
                     $post = PostFactory::random();
                     if ($post && $post->getId()) {
                         $result['parent'] = $post;

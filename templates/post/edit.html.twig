@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    {% for flash_error in app.flashes('verify_post_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+
+    {{ form_errors(postForm) }}
+
+    <h1>Edit Post</h1>
+    {{ form_start(postForm) }}
+    {% if not is_granted('ROLE_ADMIN') %}
+        {% do postForm.author.setRendered() %}
+        <div class="d-none">
+        {{ form_row(postForm.parent) }}
+        </div>
+    {% endif %}
+    {{ form_end(postForm) }}
+
+{% endblock %}

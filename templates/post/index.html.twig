@@ -16,9 +16,9 @@
         {% else %}
             <div><a href="{{ path('app_posts') }}" >{{ 'Back' | trans }}</a></div>
         {% endif %}
-        <div>{{ post.title }}</div>
+        <div class="fw-bold">{{ post.title }}</div>
         <div>{{ post.content }}</div>
-        <div>{{ post.author.email }}</div>
+        <div class="fst-italic">{{ post.author.email }}</div>
         <div>{{ post.createdAt | date("m/d/Y") }}</div>
         {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
             <div><a href="{{ path('app_post', {slug: post.slug}) }}">reply</a></div>
@@ -26,18 +26,30 @@
     </div>
     {% endif %}
     <table class="posts" border="1">
-        {% for post in replies %}
+        {% for post in pager %}
             <tr>
                 <td><a href="{{ path('app_post', {slug:post.slug}) }}" >{{ post.title }}</a> </td>
                 <td>{{ post.content }}</td>
                 <td>{{ post.author.email }}</td>
                 <td>{{ post.createdAt | date("m/d/Y") }}</td>
-                {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
-                    <td><a href="{{ path('app_post', {slug: post.slug}) }}">reply</a></td>
+                {% if is_granted('ROLE_USER') %}
+                    <td>
+                    {% if is_granted('POST_EDIT', post) %}
+                        <div><a href="{{ path('app_post_edit', {id: post.id}) }}">{{ 'edit' | trans }}</a></div>
+                        <div><a href="{{ path('app_post_delete', {id: post.id}) }}">{{ 'delete' | trans }}</a></div>
+                    {% endif %}
+                    {% if is_granted('ROLE_USER') %}
+                        <div><a href="{{ path('app_post_reply', {id: post.id}) }}">{{ 'reply' | trans  }}</a></div>
+                    {% endif %}
+                    </td>
                 {% endif %}
             </tr>
         {% endfor %}
     </table>
-    {{ pagerfanta(replies) }}
+    {% if pager.getNbPages() > 1 %}
+    <div class="p-1">
+        {{ pagerfanta(pager) }}
+    </div>
+    {% endif %}
 </div>
 {% endblock %}
