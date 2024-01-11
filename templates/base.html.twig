@@ -26,7 +26,7 @@
 
     <div class="right-menu">
         <ul>
-            <li><a href="#">Contact</a></li>
+            <li><a href="{{ path('app_contact') }}">Contact</a></li>
             {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                 <li><a href="{{ path('app_logout') }}">{{ 'Logout' | trans }}</a></li>
             {% else %}

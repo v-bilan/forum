@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "26d9f67f8dc11598409e636775c9e4aa",
+    "content-hash": "dcd09bf92267fc6b51e677fcea768f89",
     "packages": [
         {
             "name": "babdev/pagerfanta-bundle",
@@ -1907,6 +1907,140 @@
             "time": "2023-09-06T13:16:12+00:00"
         },
         {
+            "name": "google/recaptcha",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/google/recaptcha.git",
+                "reference": "d59a801e98a4e9174814a6d71bbc268dff1202df"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/google/recaptcha/zipball/d59a801e98a4e9174814a6d71bbc268dff1202df",
+                "reference": "d59a801e98a4e9174814a6d71bbc268dff1202df",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.14",
+                "php-coveralls/php-coveralls": "^2.5",
+                "phpunit/phpunit": "^10"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ReCaptcha\\": "src/ReCaptcha"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Client library for reCAPTCHA, a free service that protects websites from spam and abuse.",
+            "homepage": "https://www.google.com/recaptcha/",
+            "keywords": [
+                "Abuse",
+                "captcha",
+                "recaptcha",
+                "spam"
+            ],
+            "support": {
+                "forum": "https://groups.google.com/forum/#!forum/recaptcha",
+                "issues": "https://github.com/google/recaptcha/issues",
+                "source": "https://github.com/google/recaptcha"
+            },
+            "time": "2023-02-18T17:41:46+00:00"
+        },
+        {
+            "name": "karser/karser-recaptcha3-bundle",
+            "version": "v0.1.24",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/karser/KarserRecaptcha3Bundle.git",
+                "reference": "f2cc87e214b1bb2fb9e5af9684dd41f9d3bea717"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/karser/KarserRecaptcha3Bundle/zipball/f2cc87e214b1bb2fb9e5af9684dd41f9d3bea717",
+                "reference": "f2cc87e214b1bb2fb9e5af9684dd41f9d3bea717",
+                "shasum": ""
+            },
+            "require": {
+                "google/recaptcha": "^1.2",
+                "php": ">=7.1",
+                "symfony/expression-language": "^3.4|^4.0|^5.0|^6.0",
+                "symfony/form": "^3.4|^4.0|^5.0|^6.0",
+                "symfony/framework-bundle": "^3.4.26|^4.2.7|^5.0|^6.0",
+                "symfony/twig-bundle": "^3.4|^4.0|^5.0|^6.0",
+                "symfony/validator": "^3.4|^4.0|^5.0|^6.0",
+                "symfony/yaml": "^3.4|^4.0|^5.0|^6.0",
+                "twig/twig": "^2.9|^3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7|^8|^9|^10",
+                "symfony/http-client": "^4.3|^5.0|^6.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Karser\\Recaptcha3Bundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dmitrii Poddubnyi",
+                    "homepage": "https://github.com/karser"
+                }
+            ],
+            "description": "Google ReCAPTCHA v3 for Symfony",
+            "homepage": "http://github.com/karser/KarserRecaptcha3Bundle",
+            "keywords": [
+                "Forms",
+                "Google ReCaptcha",
+                "GoogleReCaptcha",
+                "Symfony Google ReCaptcha",
+                "anti-bot",
+                "anti-bots",
+                "anti-spam",
+                "captcha",
+                "contact",
+                "google",
+                "google recaptcha v3",
+                "no-captcha",
+                "recaptcha",
+                "recaptcha v3",
+                "recaptcha v3 symfony",
+                "security",
+                "spam",
+                "symfony",
+                "symfony google recaptcha v3",
+                "symfony recaptcha",
+                "symfony recaptcha v3",
+                "validation"
+            ],
+            "support": {
+                "issues": "https://github.com/karser/KarserRecaptcha3Bundle/issues",
+                "source": "https://github.com/karser/KarserRecaptcha3Bundle/tree/v0.1.24"
+            },
+            "time": "2023-07-03T17:14:18+00:00"
+        },
+        {
             "name": "pagerfanta/core",
             "version": "v4.2.0",
             "source": {
@@ -3405,6 +3539,70 @@
                 }
             ],
             "time": "2023-05-23T14:45:45+00:00"
+        },
+        {
+            "name": "symfony/expression-language",
+            "version": "v6.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/expression-language.git",
+                "reference": "6d560c4c80e7e328708efd923f93ad67e6a0c1c0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/expression-language/zipball/6d560c4c80e7e328708efd923f93ad67e6a0c1c0",
+                "reference": "6d560c4c80e7e328708efd923f93ad67e6a0c1c0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1",
+                "symfony/cache": "^5.4|^6.0",
+                "symfony/deprecation-contracts": "^2.5|^3",
+                "symfony/service-contracts": "^2.5|^3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\ExpressionLanguage\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Provides an engine that can compile and evaluate expressions",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/expression-language/tree/v6.3.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-04-28T16:05:33+00:00"
         },
         {
             "name": "symfony/filesystem",
@@ -5737,6 +5935,101 @@
                 }
             ],
             "time": "2023-11-28T20:40:29+00:00"
+        },
+        {
+            "name": "symfony/translation",
+            "version": "v6.3.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/translation.git",
+                "reference": "30212e7c87dcb79c83f6362b00bde0e0b1213499"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/30212e7c87dcb79c83f6362b00bde0e0b1213499",
+                "reference": "30212e7c87dcb79c83f6362b00bde0e0b1213499",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1",
+                "symfony/deprecation-contracts": "^2.5|^3",
+                "symfony/polyfill-mbstring": "~1.0",
+                "symfony/translation-contracts": "^2.5|^3.0"
+            },
+            "conflict": {
+                "symfony/config": "<5.4",
+                "symfony/console": "<5.4",
+                "symfony/dependency-injection": "<5.4",
+                "symfony/http-client-contracts": "<2.5",
+                "symfony/http-kernel": "<5.4",
+                "symfony/service-contracts": "<2.5",
+                "symfony/twig-bundle": "<5.4",
+                "symfony/yaml": "<5.4"
+            },
+            "provide": {
+                "symfony/translation-implementation": "2.3|3.0"
+            },
+            "require-dev": {
+                "nikic/php-parser": "^4.13",
+                "psr/log": "^1|^2|^3",
+                "symfony/config": "^5.4|^6.0",
+                "symfony/console": "^5.4|^6.0",
+                "symfony/dependency-injection": "^5.4|^6.0",
+                "symfony/finder": "^5.4|^6.0",
+                "symfony/http-client-contracts": "^2.5|^3.0",
+                "symfony/http-kernel": "^5.4|^6.0",
+                "symfony/intl": "^5.4|^6.0",
+                "symfony/polyfill-intl-icu": "^1.21",
+                "symfony/routing": "^5.4|^6.0",
+                "symfony/service-contracts": "^2.5|^3",
+                "symfony/yaml": "^5.4|^6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "Resources/functions.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Component\\Translation\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Provides tools to internationalize your application",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/translation/tree/v6.3.7"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-10-28T23:11:45+00:00"
         },
         {
             "name": "symfony/translation-contracts",

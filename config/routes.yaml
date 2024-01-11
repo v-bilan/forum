@@ -3,3 +3,9 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+index:
+    path: /playing/{id}
+    defaults:
+        _controller: App\Controller\DefaultController::index
+        id: 10
+        totaly_default_key : 109

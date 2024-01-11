@@ -15,4 +15,5 @@ return [
     Zenstruck\Foundry\ZenstruckFoundryBundle::class => ['dev' => true, 'test' => true],
     BabDev\PagerfantaBundle\BabDevPagerfantaBundle::class => ['all' => true],
     Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
+    Karser\Recaptcha3Bundle\KarserRecaptcha3Bundle::class => ['all' => true],
 ];
