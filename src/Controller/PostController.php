@@ -28,7 +28,7 @@ class PostController extends AbstractController
         $parent = $this->postRepository->find($id);
 
         if (!$parent) {
-            throw new EntityNotFoundException();
+            $this->createNotFoundException();
         }
 
         $post = new Post();
@@ -64,7 +64,7 @@ class PostController extends AbstractController
         $post = $this->postRepository->find($id);
 
         if ($id && !$post) {
-            throw new EntityNotFoundException();
+            $this->createNotFoundException();
         }
 
         if ($post) {
@@ -78,7 +78,7 @@ class PostController extends AbstractController
     {
         $post = $this->postRepository->find($id);
         if (!$post) {
-            throw new EntityNotFoundException();
+            $this->createNotFoundException();
         }
         $parentSlag =  $post->getParent()->getSlug() ?? '';
         $this->denyAccessUnlessGranted('POST_EDIT', $post);
@@ -92,6 +92,9 @@ class PostController extends AbstractController
     public function index(string $slug, int $page = 1): Response
     {
         $post = $this->postRepository->findOneBySlug($slug);
+        if (!$post) {
+            $this->createNotFoundException();
+        }
         return $this->renderPosts($page, $post);
     }
 

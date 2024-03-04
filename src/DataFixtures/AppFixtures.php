@@ -18,6 +18,11 @@ class AppFixtures extends Fixture
             'isVerified' => true,
             'password' => 'beresa79'
         ]);
+        $users[] = UserFactory::createOne([
+            'email' => 'bilanmail@gmail.com',
+            'isVerified' => true,
+            'password' => 'beresa79'
+        ]);
 
         PostFactory::createOne(['author' => $users[0]]);
         PostFactory::createMany(130, function () use ($users) {
