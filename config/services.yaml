@@ -22,3 +22,8 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\Controller\SecurityController:
+        bind:
+            $loginWithInterfaces:
+                'Login with Google' : '@App\Service\LoginWith\Google'
+               # 'Login with Google2' : '@App\Service\LoginWith\Google'

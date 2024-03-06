@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Service\LoginWith\LoginWithInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,19 +12,11 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class SecurityController extends AbstractController
 {
     #[Route(path: '/login', name: 'app_login')]
-    public function login(AuthenticationUtils $authenticationUtils, \Google\Client $googleClient): Response
+    public function login(AuthenticationUtils $authenticationUtils, array $loginWithInterfaces): Response
     {
         // if ($this->getUser()) {
         //     return $this->redirectToRoute('target_path');
         // }
-
-       // $googleClient->setClientId('386543107688-k4s2aek7cpf3nqbkqe1t27q08hhsr80e.apps.googleusercontent.com');
-       // $googleClient->setClientSecret('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');
-       // $googleClient->setRedirectUri('https://symfony.forum.org/login/with/google');
-
-        $googleClient->addScope("email");
-        $googleClient->addScope("profile");
-
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
@@ -41,7 +34,7 @@ class SecurityController extends AbstractController
 
         return $this->render('security/login.html.twig',
             [
-                'google_login_url' => $googleClient->createAuthUrl(),
+                'externalLoginsData' => $loginWithInterfaces,
                 'facebook_login_url'=> $facebookUrl,
                 'last_username' => $lastUsername,
                 'error' => $error
