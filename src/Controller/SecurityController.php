@@ -23,13 +23,16 @@ class SecurityController extends AbstractController
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
+        //703154201970104
+        //a39aa302f9061cae820778f3a3e65fd6
         $facebookUrl = 'https://www.facebook.com/v19.0/dialog/oauth?' . http_build_query([
-                'client_id' => '1961253021000653',
+                'client_id' => '703154201970104',
                 'redirect_uri' => $this->generateUrl(
                     route: 'app_facebook_login',
                     referenceType: UrlGeneratorInterface::ABSOLUTE_URL
                 ),
-                'state' => 'wer,12345'
+                'state' => 'wer,12345',
+                'scope' => 'email'
             ]);
 
         return $this->render('security/login.html.twig',
